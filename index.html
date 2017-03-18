@@ -11,6 +11,12 @@
 <body>
   <a-scene>
       
+      <!-- Lighting -->
+      <a-light type="ambient" color="#bbb"></a-light>
+      <a-light color="#ccc" position="0 30 0" distance="100" intensity="0.4" type="point"></a-light>
+      <a-light color="#ccc" position="3 10 -10" distance="50" intensity="0.4" type="point"></a-light>
+
+      
     <a-camera position="0 2 4">
     <a-cursor color="#4CC3D9" fuse="true" timeout="10"></a-cursor>
   </a-camera>
@@ -25,7 +31,12 @@
     <a-box position="12 25 -25" rotation="0 0 0" width="100" height="50" material="white" src="wall1.jpg"></a-box>
      <a-box position="50 25 -75" rotation="0 0 0" width="2" height="50"  depth="100" material="white" src="wall1.jpg"></a-box>
      <a-box position="-40 25 -75" rotation="0 0 0" width="2" height="50" depth="100" material="white" src="wall1.jpg"></a-box>
-    <a-video position="0 20 -130" rotation="0 0 0" width="110" height="69" loop="false" src="lead.mp4"></a-video>
+    
+        <a-assets>
+            <!--<a-video position="0 20 -130" rotation="0 0 0" width="110" height="69" loop="false" src="lead.mp4"></a-video>-->
+            <a-video position="5 50 -50" rotation="0 0 0" width="20" height="10" loop="false" src="audio-test.mp4"></a-video>
+        </a-assets>
+    
    
     
     <!--The door enterance-->
@@ -64,7 +75,7 @@
                 direction="alternate"
          ></a-animation>
      </a-box>
-     <a-box position="10 60 -130" width="20" height="10" depth="10" material="white" src="logo.jpg">
+     <a-sphere position="4 25 -130" radius="9" material="white" src="logo.jpg">
          <a-animation
             attribute="rotation"
             to="0 1000 0"
@@ -72,7 +83,9 @@
             repeat="infinite"
             direction="left"
          ></a-animation>
-     </a-box>
+     </a-sphere>
+     <a-torus position="4 25 -130" color="#43A367" arc="270" radius="5" radius-tubular="0.1"></a-torus>
+
      
       <!--Secret room-->
      <a-box position="50 25 -170" rotation="0 0 0" width="2" height="50"  depth="100" material="white" src="wall1.jpg"></a-box>
@@ -80,21 +93,48 @@
      <a-box position="0 20 -200" rotation="0 0 0" width="110" height="69" material="white" src="wall1.jpg"></a-box>
      
      <!--Stuff in the room-->
-    
-    
-     
-     
-    
-     
-     
-     
-   
-    
-    
+    <a-sphere id="sphere" position="2 5 -160" radius="20" color="lightblue">
+        <a-animation 
+                attribute="color" 
+                from="blue" 
+                to="purple"
+                dur="2030"
+                repeat="indefinate" 
+                direction="alternate" on:click>
+            </a-animation>
+        <a-animation 
+                attribute="rotation" 
+                from="0 0 0" 
+                to="324 45 123"
+                dur="2030"
+                repeat="indefinate" 
+                direction="alternate">
+            </a-animation></a-sphere>
+            <a-torus-knot color="#ffcf8c" position="2 5 -160" arc="180" p="5" q="7" radius=2.5 radius-tubular="9" rotation="-45 0 0"><a-animation 
+                attribute="rotation" 
+                from="0 0 0"
+                to="0 709 1980"
+                dur="20100"
+                repeat="indefinate"
+                direction="alternate">
+            </a-animation></a-torus-knot>
+            <a-torus-knot color="#ffcf8c" position="2  0 -160" arc="180" p="5" q="7" radius=2.5 radius-tubular="9" rotation="-45 0 0"><a-animation 
+                attribute="rotation" 
+                from="0 0 0" 
+                to="360 180 180"
+                dur="20100"
+                repeat="indefinate"
+                direction="alternate">
+            </a-animation></a-torus-knot>
+            <a-torus-knot color="#ffcf8c" position="2 5 -160" arc="180" p="5" q="7" radius=2.5 radius-tubular="9" rotation="-45 0 0"><a-animation 
+                attribute="rotation" 
+                from="0 0 0" 
+                to="180 360 180"
+                dur="20100"
+                repeat="indefinate"
+                direction="alternate">
+            </a-animation></a-torus-knot>
     
     </a-scene>
-
-  
-
 </body>
 </html>
